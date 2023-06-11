@@ -1,9 +1,9 @@
 class Note(object):
-    def __init__(self, id, title, text, dateTime):
+    def __init__(self, id, date, title, text):
         self.id = id
         self.title = title
         self.text = text
-        self.dateTime = dateTime
+        self.date = date
         
     @property
     def id(self):
@@ -28,3 +28,14 @@ class Note(object):
     @text.setter
     def text(self, text):
         self._text = text
+        
+    @property
+    def date(self):
+        return self._date
+    
+    @date.setter
+    def date(self, date):
+        self._date = date
+        
+    def __str__(self):
+        return f'Заметка номер: {self._id}\nПоследние изменения: {self._date}\n{self._title}\n{self._text}'
